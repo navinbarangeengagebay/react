@@ -2,7 +2,15 @@ import { useEffect, useState } from 'react';
 import ListComponent from './ListComponent';
 import EmaptyComponent from './EmptyComponent';
 function Todo() {
-    const [todos, setTodos] = useState([]);
+    let data = window.localStorage.getItem("TASK_KEY");
+    let todoData = []
+    // console.log(data);
+    if(data!=undefined){
+        todoData = JSON.parse(data);
+    }
+    const [todos, setTodos] = useState(todoData);
+    window.localStorage.setItem("TASK_KEY",JSON.stringify(todos));
+    // console.log("todos:",todos);
     const [inputValue, setInputValue] = useState('');
     const [selected, setSelected] = useState(0);
     const handleInputChange = (event) => {
@@ -29,7 +37,7 @@ function Todo() {
     const handleTodoCompalete = (id) => {
         setTodos(
             todos.map((todo) => {
-                if (todo.id === id) {
+                if (todo.id == id) {
                     return { ...todo, done: !todo.done };
                 } else {
                     return todo;
