@@ -11,7 +11,7 @@ function ListComponent(props) {
                 <h5 className="ps-3 pt-1">{todo.text}</h5>
 
                 <div className="ms-auto p-2">
-                    <small>Created : {todo.date}</small>
+                    <small>Created : {todo.date}</small> 
                     <button type="button" className="btn btn-primary ms-2" value={todo.id} onClick={(e) => handleTodoCompalete(e.target.value)}>
                         Completed
                     </button>

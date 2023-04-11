@@ -12,7 +12,6 @@ function Todo() {
     window.localStorage.setItem("TASK_KEY",JSON.stringify(todos));
     // console.log("todos:",todos);
     const [inputValue, setInputValue] = useState('');
-    const [selected, setSelected] = useState(0);
     const handleInputChange = (event) => {
         setInputValue(event.target.value);
     };
